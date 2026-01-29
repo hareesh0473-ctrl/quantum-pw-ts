@@ -14,7 +14,7 @@ export class MergeLeads extends BrowserInteractionsImpl {
         this.page = page;
         this.primaryLead = page.locator(`select[name="primary_lead"]`);
         this.duplicateLead = page.locator(`select[name="duplicate_lead"]`);
-        this.mergeButton = page.locator(`//div/button[text()='Merge']`);
+        this.mergeButton = page.locator(`//div/button[text()='Merge leads']`);
     }
 
     async selectPrimaryLead(label: string): Promise<void> {
