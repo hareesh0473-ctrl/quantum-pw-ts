@@ -26,7 +26,7 @@ export class ContactLeadsPage extends BrowserInteractionsImpl {
         this.exportCSV = page.getByRole('button', { name: 'Export CSV' });
         this.tableCompany = page.locator(`//table/tbody/tr[1]/td[2]`);
         this.tableStatus = page.locator(`//table/tbody/tr[1]/td[3]/span`);
-        this.editLead = page.locator(`//input[@name='editLead]`);
+        this.editLead = page.locator(`//input[@name='lead]`);
     }
 
     async clickAddNewContact(): Promise<AddContactDetailsPage> {
