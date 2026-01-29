@@ -14,6 +14,7 @@ export class ContactLeadsPage extends BrowserInteractionsImpl {
     readonly exportCSV: Locator;
     readonly tableCompany: Locator;
     readonly tableStatus: Locator;
+    readonly editLead: Locator;
 
     constructor(page: Page, context: BrowserContext) {
         super(page, context);
@@ -25,6 +26,7 @@ export class ContactLeadsPage extends BrowserInteractionsImpl {
         this.exportCSV = page.getByRole('button', { name: 'Export CSV' });
         this.tableCompany = page.locator(`//table/tbody/tr[1]/td[2]`);
         this.tableStatus = page.locator(`//table/tbody/tr[1]/td[3]/span`);
+        this.editLead = page.locator(`//input[@name='editLead]`);
     }
 
     async clickAddNewContact(): Promise<AddContactDetailsPage> {
