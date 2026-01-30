@@ -31,6 +31,7 @@ test('Create new contact', async ({ addContactDetailsPage, contactsLeadsPage }) 
     await addContactDetailsPage.enterLastContact("2000-04-01");
     await addContactDetailsPage.enterNotes("NewLead");
     await addContactDetailsPage.acceptAlert("Ok");
+    
     await addContactDetailsPage.clickAddButton();
     
     const contactPage = await contactsLeadsPage.switchBackToContactsPage();
