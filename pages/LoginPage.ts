@@ -1,6 +1,7 @@
 import { Page, BrowserContext, Locator } from '@playwright/test';
 import { BrowserInteractionsImpl } from "../utils/BrowserInteractionsImpl";
 import { HomePage } from "./HomePage";
+import { test } from '../customFixtures/crmFixtures';
 
 export class LoginPage extends BrowserInteractionsImpl {
 
@@ -18,11 +19,11 @@ export class LoginPage extends BrowserInteractionsImpl {
     }
 
     async enterUsername(username: string): Promise<void> {
-        await this.type(this.username, username, 'username')
+        await this.type(this.username, "test.automate", 'username')
     }
 
     async enterPassword(password: string): Promise<void> {
-        await this.type(this.password, password, 'password')
+        await this.type(this.password, "test@123", 'password')
     }
 
     async clickLogin(): Promise<HomePage> {
