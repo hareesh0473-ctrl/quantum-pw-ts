@@ -6,7 +6,7 @@ import { AddContactDetailsPage } from '../pages/AddContactDetailsPage';
 import {APIUtils} from '../utils/APIUtils'
 import {URLConstants} from '../constants/urlConstants';
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: 'quantum-pw-ts/.env' });
 
 
 type CRMFixtures = {
@@ -21,14 +21,16 @@ type CRMFixtures = {
 const crmTest = baseTest.extend<CRMFixtures>({
   homePage: async ({ page, context }, use) => {
     await page.goto(URLConstants.adminURL);
+    await page.waitForLoadState('networkidle');
 
     const username = process.env.USERNAME ? process.env.USERNAME : "automate.crm";
-    const password = process.env.PASSWORD ? process.env.PASSWORD : "****";
+    const password = process.env.PASSWORD ? process.env.PASSWORD : "test@123";
 
     const loginPage = new LoginPage(page, context);
     await loginPage.enterUsername(username);
     await loginPage.enterPassword(password);
     const homePage = await loginPage.clickLogin();
+    await page.waitForLoadState('networkidle');
 
     await use(homePage);
   },

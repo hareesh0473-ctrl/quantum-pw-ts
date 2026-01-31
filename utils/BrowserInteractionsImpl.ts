@@ -1,4 +1,4 @@
-import { Locator, Page, BrowserContext, test, FrameLocator } from '@playwright/test';
+import { Locator, Page, BrowserContext, test, FrameLocator, expect } from '@playwright/test';
 import { BrowserInteractions } from './BrowserInteractions';
 import path from 'path';
 
