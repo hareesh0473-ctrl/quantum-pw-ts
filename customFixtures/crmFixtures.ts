@@ -6,6 +6,7 @@ import { AddContactDetailsPage } from '../pages/AddContactDetailsPage';
 import {APIUtils} from '../utils/APIUtils'
 import {URLConstants} from '../constants/urlConstants';
 import dotenv from 'dotenv';
+import { LeadPage } from '../pages/EditLeadeInfo';
 dotenv.config({ path: 'quantum-pw-ts/.env' });
 
 
@@ -14,6 +15,7 @@ type CRMFixtures = {
   context: BrowserContext;
   homePage: HomePage;
   contactsLeadsPage: ContactLeadsPage;
+  leadPage: LeadPage;
   addContactDetailsPage: AddContactDetailsPage;
   apiCreateContact: {response: APIResponse, payload: any};
 };
@@ -46,6 +48,12 @@ const crmTest = baseTest.extend<CRMFixtures>({
     const addContactDetailsPage = await contactsLeadsPage.clickAddNewContact();
     await use(addContactDetailsPage);
   },
+  
+  leadPage: async ({ page, context }, use) => {
+    const leadPage = new LeadPage(page, context);
+    await use(leadPage);
+  },
+
 
   apiCreateContact: async ({request}, use)=> {
     const apiUtils = new APIUtils(request);
